@@ -1,5 +1,9 @@
-function HomePage() {
-  return <div>HomePage</div>;
-}
+import { ProductsGrid } from "@/widgets/products-grid/ui/ProductsGrid.tsx";
 
-export default HomePage;
+export function HomePage() {
+  return (
+    <div>
+      <ProductsGrid />
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 import { alpha, InputBase, styled } from "@mui/material";
 
-const SearchBase = styled("div")(({ theme }) => ({
+const SearchBase = styled("form")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -20,22 +20,25 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
   position: "absolute",
-  pointerEvents: "none",
+  // pointerEvents: "none",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  right: 0,
+  top: 0,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  position: "relative",
   color: "inherit",
   "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: theme.spacing(1, 0, 1, 2),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    paddingRight: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch",
+      width: "30ch",
     },
   },
 }));

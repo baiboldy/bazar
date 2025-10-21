@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import HomePage from "@pages/home/ui/HomePage.tsx";
-import AboutPage from "@pages/about/ui/AboutPage.tsx";
 import { Header } from "@/widgets/header";
+import { ProfilePage } from "@pages/profile";
+import { AboutPage } from "@pages/about";
+import { HomePage } from "@pages/home";
 
 export const Routing = () => {
   return (
@@ -10,6 +11,7 @@ export const Routing = () => {
         <Route element={<Header />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
