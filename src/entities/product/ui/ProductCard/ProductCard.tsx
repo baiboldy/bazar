@@ -10,16 +10,33 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import type { Product } from "@/entities/product/model/types.ts";
+import React from "react";
 
 type Props = {
   product: Product;
-  onShare: () => void;
-  onFavorite: () => void;
+  onShare: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onFavorite: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onMore: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onBucket: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export function ProductCard({ product, onShare, onFavorite }: Props) {
+export function ProductCard({
+  product,
+  onShare,
+  onFavorite,
+  onMore,
+  onBucket,
+}: Props) {
   return (
-    <Card sx={{ width: "100%" }}>
+    <Card
+      sx={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <CardHeader
         title={product.title}
         subheader={product.price}
@@ -44,10 +61,20 @@ export function ProductCard({ product, onShare, onFavorite }: Props) {
         </Typography>
       </CardContent>
       <CardActions sx={{ flexDirection: "column", gap: 1 }} disableSpacing>
-        <Button variant="contained" fullWidth>
+        <Button
+          variant="contained"
+          fullWidth
+          onClick={onMore}
+          data-id={product.id}
+        >
           Подробнее
         </Button>
-        <Button color="secondary" variant="contained" fullWidth>
+        <Button
+          color="secondary"
+          variant="contained"
+          fullWidth
+          onClick={onBucket}
+        >
           В корзину
         </Button>
       </CardActions>

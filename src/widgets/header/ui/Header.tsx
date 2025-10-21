@@ -6,7 +6,7 @@ import { Notification } from "@features/notification";
 import { Mail } from "@/features/mail";
 import { SidebarToggle } from "@features/sidebar-toggle";
 
-import { Outlet } from "react-router";
+import { Outlet, Link } from "react-router";
 
 export function Header() {
   return (
@@ -15,14 +15,26 @@ export function Header() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <SidebarToggle />
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+              }}
             >
-              BAZAR
-            </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  display: {
+                    xs: "none",
+                    sm: "block",
+                  },
+                }}
+              >
+                BAZAR
+              </Typography>
+            </Link>
             <Search
               onSearch={(e) => {
                 e.preventDefault();
@@ -38,7 +50,9 @@ export function Header() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Outlet />
+      <Container maxWidth="xl" sx={{ mt: 1 }}>
+        <Outlet />
+      </Container>
     </>
   );
 }

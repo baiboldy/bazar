@@ -8,7 +8,7 @@ type Props = {
 export function Section({ title, children }: Props) {
   return (
     <Box component="section">
-      <Typography variant="h5" component="h1">
+      <Typography variant="h5" component="h1" gutterBottom sx={{ mb: 2 }}>
         {title}
       </Typography>
       {children}

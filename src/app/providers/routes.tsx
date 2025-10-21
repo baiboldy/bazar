@@ -3,6 +3,7 @@ import { Header } from "@/widgets/header";
 import { ProfilePage } from "@pages/profile";
 import { AboutPage } from "@pages/about";
 import { HomePage } from "@pages/home";
+import { ProductDetailsPage } from "@pages/product-details";
 
 export const Routing = () => {
   return (
@@ -10,6 +11,9 @@ export const Routing = () => {
       <Routes>
         <Route element={<Header />}>
           <Route index element={<HomePage />} />
+          <Route path="catalog">
+            <Route path=":id" element={<ProductDetailsPage />} />
+          </Route>
           <Route path="about" element={<AboutPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
